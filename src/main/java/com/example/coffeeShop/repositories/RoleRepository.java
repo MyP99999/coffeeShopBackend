@@ -1,6 +1,6 @@
-package repositories;
+package com.example.coffeeShop.repositories;
 
-import entities.Role;
+import com.example.coffeeShop.entities.Role;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RoleRepository extends JpaRepository<Role, Integer> {

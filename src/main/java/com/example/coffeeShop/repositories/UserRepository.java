@@ -1,6 +1,7 @@
-package repositories;
-import entities.User;
+package com.example.coffeeShop.repositories;
+import com.example.coffeeShop.entities.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Integer> {
+    User findByUsername(String username);
 }
