@@ -8,7 +8,7 @@ import java.util.Date;
 @Entity
 @Getter
 @Setter
-@Table(name = "order")
+@Table(name = "`order`")
 public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -22,9 +22,10 @@ public class Order {
     @JoinColumn(name = "productId", nullable = false)
     private Product product;
 
-    @Column(nullable = false)
+    @Column(name = "OrderDate", nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
     private Date orderDate;
+
 
     @Column(nullable = false)
     private Integer quantity;
