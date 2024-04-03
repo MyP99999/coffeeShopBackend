@@ -29,4 +29,12 @@ public class ProductService {
         productRepository.deleteById(id);
     }
 
+    public Product updateProduct(Integer id, Product updatedProduct) {
+        if (productRepository.existsById(id)) {
+            updatedProduct.setProductId(id);
+            return productRepository.save(updatedProduct);
+        } else {
+            throw new RuntimeException("Product not found with id: " + id);
+        }
+    }
 }
