@@ -1,4 +1,4 @@
-package services;
+package com.example.coffeeShop.services;
 
 import com.example.coffeeShop.entities.Product;
 import com.example.coffeeShop.repositories.ProductRepository;
@@ -21,5 +21,7 @@ public class ProductService {
         return productRepository.findById(id);
     }
 
-
+    public Product createProduct(Product product) {
+        return productRepository.save(product);
+    }
 }

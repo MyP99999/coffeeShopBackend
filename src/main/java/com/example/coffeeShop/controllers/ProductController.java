@@ -1,11 +1,11 @@
 package com.example.coffeeShop.controllers;
 
 import com.example.coffeeShop.entities.Product;
+import com.example.coffeeShop.services.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import services.ProductService;
 import java.util.List;
 import java.util.Optional;
 
@@ -26,6 +26,12 @@ public class ProductController {
         Optional<Product> product = productService.getProductById(id);
         return product.map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+
+    @PostMapping
+    public ResponseEntity<Product> createProduct(@RequestBody Product product) {
+        Product createdProduct = productService.createProduct(product);
+        return ResponseEntity.status(HttpStatus.CREATED).body(createdProduct);
     }
 
 }
